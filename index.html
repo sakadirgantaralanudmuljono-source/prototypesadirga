@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <base target="_top">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#071827">
+  <meta name="application-name" content="SAKA Dirgantara">
+  <meta name="description" content="Sistem manajemen organisasi SAKA Dirgantara untuk anggota, kegiatan, absensi, administrasi, inventaris, dan keuangan.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="SAKA Dirgantara">
+
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:FILL@0..1&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <div id="appRoot">
+    <section class="system-loading" role="status" aria-live="polite" aria-busy="true" aria-labelledby="systemLoadingTitle">
+      <div class="system-loading-card">
+        <div class="system-loading-emblem" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>
+        </div>
+        <p class="system-loading-brand">SAKA DIRGANTARA</p>
+        <h1 id="systemLoadingTitle">Memuat sistem<span class="loading-dots" aria-hidden="true"><i></i><i></i><i></i></span></h1>
+        <p class="system-loading-description">Menyiapkan dashboard organisasi Anda.</p>
+        <div class="system-loading-track" aria-hidden="true"><span></span></div>
+        <p class="system-loading-status" id="systemLoadingStatus">Menunggu respons sistem...</p>
+        <small id="systemLoadingElapsed" aria-live="off">Waktu tunggu: 0 detik</small>
+      </div>
+    </section>
+  </div>
+
+  <div
+    class="modal-backdrop"
+    id="modalBackdrop"
+    role="presentation"
+    aria-hidden="true"
+  >
+    <div
+      class="modal"
+      id="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+      aria-describedby="modalSubtitle"
+    >
+      <div class="modal-header">
+        <div>
+          <h2 id="modalTitle">Form</h2>
+          <p id="modalSubtitle">Lengkapi data.</p>
+        </div>
+
+        <button
+          type="button"
+          class="modal-close"
+          onclick="closeModal()"
+          aria-label="Tutup modal"
+        >
+          <span class="material-symbols-rounded" aria-hidden="true">close</span>
+        </button>
+      </div>
+
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div id="pwaOfflineBanner" class="pwa-offline-banner" role="status" aria-live="polite" hidden>
+    <span class="material-symbols-rounded" aria-hidden="true">wifi_off</span>
+    <span>Anda sedang offline. Data server akan tersedia kembali setelah koneksi pulih.</span>
+  </div>
+
+
+  <div
+    class="toast-container"
+    id="toastContainer"
+    aria-live="polite"
+    aria-atomic="false"
+  ></div>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
